@@ -1,0 +1,160 @@
+﻿@{
+    Layout = "_LayoutSansi";
+    ViewBag.Title = "Tạo đơn hàng ký gửi";
+}
+<div class="tim-kiem-sp">
+    <div class="ky-gui-content">
+        <table>
+            <tr>
+                <th class="cor1">STT</th>
+                <th class="cor2">Hình ảnh</th>
+                <th class="cor3">Thông tin sản phẩm</th>
+                <th class="cor4">Thông tin số hàng hoá</th>
+                <th class="cor5">Ghi chú khác</th>
+                <th class="cor6">Thành tiền</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="stt">
+                        <span>1</span>
+                        <span>X</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="images">
+                        <img src="~/images/tim-kiem-sp/sp.svg" alt="" />
+                        <div class="images-sub">
+                            <button type="button" id="tai">Tải</button>
+                            <button type="button" id="link">Link</button>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="don-hang">
+                        <input type="text" placeholder="Mã vận đơn (*)" />
+                        <input type="text" placeholder="Tên sản phẩm (*)" />
+                        <input type="text" placeholder="Số kiện hàng" />
+                        <input type="text" placeholder="Hãng vận chuyển" />
+                    </div>
+                </td>
+                <td>
+                    <div class="hang-hoa">
+                        <select>
+                            <option>Trung Quôc - Việt Nam</option>
+                        </select>
+                        <select>
+                            <option>Chọn loại danh mục</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="note">
+                        <textarea cols="30"
+                                  rows="5"
+                                  placeholder="Ghi chú sản phẩm"></textarea>
+                    </div>
+                </td>
+                <td>
+                    <div class="thanh-tien">
+                        <div>
+                            <input type="checkbox" name="check" id="kiem-go" />
+                            <label for="kiem-go"> Kiểm gõ</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="check" id="bao-hiem" />
+                            <label for="bao-hiem">Bảo hiểm</label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="stt">
+                        <span>1</span>
+                        <span>X</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="images">
+                        <img src="~/images/tim-kiem-sp/sp.svg" alt="" />
+                        <div class="images-sub">
+                            <button type="button" id="tai">Tải</button>
+                            <button type="button" id="link">Link</button>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="don-hang">
+                        <input type="text" placeholder="Mã vận đơn (*)" />
+                        <input type="text" placeholder="Tên sản phẩm (*)" />
+                        <input type="text" placeholder="Số kiện hàng" />
+                        <input type="text" placeholder="Hãng vận chuyển" />
+                    </div>
+                </td>
+                <td>
+                    <div class="hang-hoa">
+                        <select>
+                            <option>Trung Quôc - Việt Nam</option>
+                        </select>
+                        <select>
+                            <option>Chọn loại danh mục</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="note">
+                        <textarea cols="30"
+                                  rows="5"
+                                  placeholder="Ghi chú sản phẩm"></textarea>
+                    </div>
+                </td>
+                <td>
+                    <div class="thanh-tien">
+                        <div>
+                            <input type="checkbox" name="check" id="kiem-go" />
+                            <label for="kiem-go"> Kiểm gõ</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="check" id="bao-hiem" />
+                            <label for="bao-hiem">Bảo hiểm</label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <button type="button">+ Thêm kiện hàng</button>
+    </div>
+    <div class="ky-gui-sub">
+        <div>
+            <div class="ky-gui-sub-title">Thông tin khách hàng</div>
+            <div class="ky-gui-sub-content">
+                <div>
+                    <input type="checkbox" id="address" />
+                    <label for="address">Ngọc Minh - 08 6969 6969 - ngõ 300 - thuỵ khê - tây hồ - hn</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="khac" />
+                    <label for="khac">Thêm địa chỉ khác</label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="ky-gui-sub-title">Trụ sở nhận hàng</div>
+            <div class="ky-gui-sub-content">
+                <div>
+                    <input type="radio" name="noi-nhan" id="input-HN" />
+                    <label for="input-HN">Hà Nội</label>
+                </div>
+                <div>
+                    <input type="radio" name="noi-nhan" id="input-HCM" />
+                    <label for="input-HCM">Hồ Chí Minh</label>
+                </div>
+                <div>
+                    <input type="radio" name="noi-nhan" id="input-HP" />
+                    <label for="input-HP">Hải Phòng</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="bt-dat-hang">Tạo đơn ký gửi</button>
+</div>

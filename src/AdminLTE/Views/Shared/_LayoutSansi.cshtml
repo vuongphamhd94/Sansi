@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Eden Group" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>@ViewBag.Title</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/sansi-style.css" />
+    </environment>
+</head>
+
+<body data-active_menu="<%= var_active_menu %>">
+    <div class="wrapper">
+       
+        @{
+            if (ViewBag.Type == 1)
+            {
+                @Html.Partial("~/Views/Shared/Sansi/header.cshtml");
+            }
+            else
+            {
+                @Html.Partial("~/Views/shared/Sansi/Header2.cshtml");
+            }
+        }
+        @RenderBody()
+        @Html.Partial("~/Views/shared/Sansi/Footer.cshtml")
+    </div>
+</body>
+<script src="~/lib/jquery/jquery.js"></script>
+<script src="~/js/sanSi-site.js"></script>
+<!-- <script src="./plugins/bootstrap/js/bootstrap.min.js"></script> -->
+</html>
