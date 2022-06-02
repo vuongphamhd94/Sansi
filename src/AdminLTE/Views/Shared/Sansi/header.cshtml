@@ -27,10 +27,18 @@
         </div>
     </div>
     <ul>
-        <li><a href="@Url.Action("Index","SansiHome")">TRANG CHỦ</a></li>
-        <li><a href="#">DỊCH VỤ</a></li>
-        <li><a href="index_uu_dai.html">ƯU ĐÃI</a></li>
-        <li><a href="index-thong-tin-them.html">THÔNG TIN THÊM</a></li>
+        <li  class="@(ViewBag.Active== "TrangChu" ? "active": "" )">
+            <a href="@Url.Action("Index","SansiHome")">TRANG CHỦ</a>
+        </li>
+        <li  class="@(ViewBag.Active== "DichVu" ? "active": "" )">
+            <a href="@Url.Action("IndexDanhMucSanPham","SansiHome")">DỊCH VỤ</a>
+        </li>
+        <li class="@(ViewBag.Active== "UuDai" ? "active": "" )">
+            <a href="@Url.Action("IndexUuDai","SansiHome")">ƯU ĐÃI</a>
+        </li>
+        <li class="@(ViewBag.Active== "ThongTinThem" ? "active": "" )">
+            <a href="@Url.Action("IndexTinTuc2","SansiHome")">THÔNG TIN THÊM</a>
+        </li>
     </ul>
     <div class="dangky">
         <p>ĐĂNG KÝ DỊCH VỤ</p>
@@ -46,3 +54,116 @@
         <p class="check-don is-mobile">Check mã vận đơn</p>
     </div>
 </nav>
+
+<div class="login-mobile hide">
+    <div class="content">
+        <div class="banner">
+            <img src="~/images/nav/01.jpg" alt="banner" />
+            <div class="thong-tin-dang-nhap">
+                <img src="~/images/cai-dat/avatar.jpg" alt="banner" />
+                <div>
+                    <p>Ngọc Minh</p>
+                    <span>ngocminh2392@gmail.com</span>
+                </div>
+            </div>
+            <div class="btm-login">
+                <a href="#">
+                    <i class="icon-login"></i>
+                    <p>Login</p>
+                </a>
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li>
+                    <div>
+                        <a href="@Url.Action("Index","SansiHome")">Trang chủ</a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a href="@Url.Action("IndexDanhMucSanPham","SansiHome")">Dịch vụ</a>
+                        <i class="icon1"></i>
+                    </div>
+                    <ul class="hide">
+                        <li>
+                            <a href="#">Dịch vụ 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Dịch vụ 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <a href="@Url.Action("IndexUuDai","SansiHome")">Ưu đãi</a>
+                        <i class="icon1"></i>
+                    </div>
+                    <ul class="hide">
+                        <li>
+                            <a href="#">Ưu đãi 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Ưu đãi 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <a href="#">Thông tin thêm</a>
+                        <i class="icon2"></i>
+                    </div>
+                    <ul>
+                        <li class="active">
+                            <a href="#">Bản giá</a>
+                        </li>
+                        <li>
+                            <a href="#">Hỏi đáp</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("IndexTinTuc2","SansiHome")">Tin tức</a>
+                        </li>
+                        <li>
+                            <a href="#">Liên hệ</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="dangky btm-dkdv">
+            <a href="#">
+                <button type="button" class="dkdv">Đăng ký dịch vụ</button>
+            </a>
+        </div>
+        <div class="btm-close">
+            <button type="button" class="close">X</button>
+        </div>
+    </div>
+</div>
+
+<div class="baner">
+    <div class="mg-baner">
+        <img src="~/images/baner.jpg" alt="" class="hide" />
+        @*<img src="./images/banner1-2.jpg" alt="" />*@
+        <img src="~/images/banner1-2.jpg" />
+    </div>
+    <div class="content-baner">
+        <h2 class="title is-desktop">SANSI56 - ĐẶT HÀNG SIÊU NHANH</h2>
+        <h2 class="title is-mobile">SANSI56 <br />ĐẶT HÀNG SIÊU NHANH</h2>
+        <div class="sub">
+            Sansi56.vn là giải pháp nhập hàng tối ưu cho quý khách. Chúng tôi mang
+            lại cho khách hàng nguồn hàng phong phú với mức giá cực rẻ.
+        </div>
+        <div class="button">
+            <button>Khám phá ngay</button>
+        </div>
+    </div>
+    <div class="bt-preview">
+        <button type="button"><i></i></button>
+    </div>
+    <div class="bt-next">
+        <button type="button">
+            <i></i>
+        </button>
+    </div>
+</div>

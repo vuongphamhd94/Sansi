@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "_LayoutSansi";
+    ViewBag.Title = "Thêm mới nhà cung cấp";
+    ViewBag.Active = "NhaCungCap";
+}
+<div class="container-nha-cung-cap2">
+    <div class="tbn1">
+        <div class="title">
+            <p>
+                <span>1</span>
+                Thông tin chung
+            </p>
+        </div>
+        <div class="content">
+            <div>
+                <div>
+                    <label for="input-tenNCC">
+                        <p>Tên nhà cung cấp <span>*</span></p>
+                    </label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label for="input-web">
+                        <p>Website <span>*</span></p>
+                    </label>
+                    <input type="text" />
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label for="input-dia-chi">Địa chỉ <span>*</span></label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label for="input-logo">Logo <span>*</span></label>
+                    <input type="text" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tbn2-3">
+        <div class="title">
+            <p>
+                <span>2</span>
+                Phương thức liên hệ
+            </p>
+        </div>
+        <div class="content">
+            <div>
+                <select>
+                    <option>Chọn loại phương thức</option>
+                </select>
+                <input type="text" placeholder="Họ tên" />
+                <input type="text" placeholder="Chức vụ" />
+                <input type="text" placeholder="Chi tiết" />
+            </div>
+            <div>
+                <button type="button">+</button>
+                <p>Thêm dòng</p>
+            </div>
+        </div>
+    </div>
+    <div class="tbn2-3">
+        <div class="title">
+            <p>
+                <span>3</span>
+                Tài khoản ngân hàng
+            </p>
+        </div>
+        <div class="content">
+            <div>
+                <select>
+                    <option>Tên ngân hàng</option>
+                </select>
+                <input type="text" placeholder="Số tài khoản" />
+                <input type="text" placeholder="Chủ tài khoản" />
+                <input type="text" placeholder="Chi nhánh" />
+            </div>
+            <div>
+                <button type="button">+</button>
+                <p>Thêm dòng</p>
+            </div>
+        </div>
+    </div>
+    <button type="button">Thêm mới</button>
+</div>

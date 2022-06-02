@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "_LayoutSansi";
+    ViewBag.Title = "Rút Tiền";
+    ViewBag.Active = "ViDienTu";
+}
+<div class="container-rut-tien">
+    <div class="tbn1">
+        <div class="title">Thông tin rút tiền</div>
+        <div class="content">
+            <label for="input-tien-rut">Tổng rút <span>*</span></label>
+            <input type="text" id="input-tien-rut" />
+            <p>1.500.000đ có thể rút</p>
+        </div>
+    </div>
+
+    <button type="button">Rút tiền</button>
+
+    <div class="tbn2">
+        <div class="title">Thông tin chuyển khoản</div>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>Ngân hàng</th>
+                    <th>Thông tin chuyển khoản</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>1</p>
+                        <button type="button">X</button>
+                    </td>
+                    <td>Vietcombank</td>
+                    <td>Nguyễn Ngọc Minh, 0611001946082, chi nhánh ba đình</td>
+                </tr>
+            </table>
+        </div>
+        <div class="canh-bao">
+            <i></i>
+            <p>Quý khách lưu ý chọn thông tin tài khoản trước khi "Gửi yêu cầu" !</p>
+        </div>
+    </div>
+    <div class="btn-them-tk">
+        <button type="button">Thêm tài khoản</button>
+        <button type="button">Gửi yêu cầu</button>
+    </div>
+    <div class="tbn3">
+        <table>
+            <tr>
+                <th>Ngày yêu cầu</th>
+                <th>Tổng rút</th>
+                <th>Tình trạng</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- bang them tai khoan ngan hang -->
+<div class="wd-vi-dien-tu hide">
+    <div class="nen"></div>
+    <div class="bang-thong-bao">
+        <div>
+            <label for="ten-ngan-hang">Tên ngân hàng <span>*</span></label>
+            <select id="ten-ngan-hang">
+                <option>-Chọn-</option>
+            </select>
+        </div>
+        <div>
+            <label for="tai-khoan">Thông tin tài khoản hoặc địa chỉ nhận tiền <span>*</span></label>
+            <input type="text" id="tai-khoan" placeholder="Thông tin tài khoản" />
+        </div>
+
+        <p>VD: LE VAN TUNG, 66851653213198, Chi nhánh Nguyễn Trãi</p>
+        <button type="button">Thêm mới</button>
+        <button type="button" id="dong">X</button>
+    </div>
+</div>

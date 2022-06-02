@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "_LayoutSansi";
+    ViewBag.Title = "Trang chủ";
+    ViewBag.Active = "CaiDat";
+}
+
+<div class="container-dia-chi-giao-hang">
+    <div>
+        <div class="left">
+            <div class="thong-tin-giao-hang">
+                <table>
+                    <tr>
+                        <th>STT</th>
+                        <th>Thông tin giao hàng</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            Ngọc Minh - 0946135678 - ngõ 415 thụy khuê - tây hồ - hà nội -
+                            Quận Tây Hồ
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="dckh">
+                <div class="title">Địa chỉ nhận hàng khác</div>
+                <div class="content">
+                    <div>
+                        <label for="input-name">Họ tên <span>*</span></label>
+                        <input type="text" id="input-name" />
+                    </div>
+                    <div>
+                        <label for="input-sdt">Số điện thoại <span>*</span></label>
+                        <input type="text" id="input-sdt" />
+                    </div>
+                    <div>
+                        <label for="input-dc">Tỉnh/TP <span>*</span></label>
+                        <input type="text" id="input-dc" />
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <label for="input-dcct">Địa chỉ chi tiết <span>*</span></label>
+                        <input type="text" id="input-dcct" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="thong-tin-cua-ban">
+                <div class="title">Thông tin của bạn</div>
+                <div class="content">
+                    <div class="avatar">
+                        <img src="~/images/cai-dat/6eaf1a844ae4b6fa6eeb6ff17f468cc0.jpg"
+                             alt="avatar" />
+                        <p>Ngọc Minh</p>
+                    </div>
+                    <div class="trang-thai">0/0</div>
+                    <div class="thong-tin">
+                        <div>
+                            <p>Email:</p>
+                            <p>Điện thoại:</p>
+                            <p>Địa chỉ:</p>
+                        </div>
+                        <div>
+                            <p>ngocminh2392@gmail.com</p>
+                            <p>08 6969 6699</p>
+                            <p>số 9 - ngõ 300 - thụy khuê - tây hồ - hn</p>
+                        </div>
+                    </div>
+                    <div class="bnt-sua">
+                        <button type="button">Lưu thay đổi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button">Lưu thay đổi</button>
+</div>
+

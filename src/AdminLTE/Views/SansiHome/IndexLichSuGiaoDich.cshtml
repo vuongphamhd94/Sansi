@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "_LayoutSansi";
+    ViewBag.Title = "Lịch sử giao dịch";
+    ViewBag.Active = "ViDienTu";
+}
+<div class="container-lich-su-giao-dich">
+    <div class="tbn-1">
+        <div class="title">
+            <p>
+                Tổng tiền đã nạp
+                <span>1.500.0000đ</span>
+            </p>
+            <p>
+                Tổng tiền rút
+                <span>1.500.0000đ</span>
+            </p>
+            <p>
+                Tổng tiền hàng
+                <span>1.500.0000đ</span>
+            </p>
+            <p>
+                Tổng thanh toán
+                <span>1.500.0000đ</span>
+            </p>
+            <p>
+                Tổng tiền hoàn
+                <span>1.500.0000đ</span>
+            </p>
+            <p>
+                số dư
+                <span>1.500.0000đ</span>
+            </p>
+        </div>
+        <div class="content">
+            <input type="text" placeholder="Mã nhận hàng" />
+            <select>
+                <option>Loại giao dịch</option>
+            </select>
+            <input type="text" placeholder="Từ ngày" />
+            <input type="text" placeholder="Đến ngày" />
+            <button type="button">Tìm kiếm</button>
+        </div>
+    </div>
+    <button type="button">Rút tiền</button>
+    <div class="tbn-2">
+        <table>
+            <tr>
+                <th>STT</th>
+                <th>Thời gian</th>
+                <th>Loại giao dịch</th>
+                <th>Thông tin</th>
+                <th>Giá trị GD</th>
+                <th>Số dư hiện tại</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <button type="button">Xuất excel</button>
+</div>

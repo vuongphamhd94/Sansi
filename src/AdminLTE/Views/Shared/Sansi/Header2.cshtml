@@ -1,4 +1,8 @@
-﻿<header>
+﻿@{ 
+    var t = ViewBag.Active;
+}
+
+<header>
     <ul>
         <li>Tỷ Giá: 1¥ = 3550</li>
         <li>
@@ -27,10 +31,10 @@
         </div>
     </div>
     <ul>
-        <li><a href="index.html">TRANG CHỦ</a></li>
-        <li><a href="index-vi-dien-tu2.html">DỊCH VỤ</a></li>
-        <li><a href="index_uu_dai.html">ƯU ĐÃI</a></li>
-        <li><a href="index-thong-tin-them.html">THÔNG TIN THÊM</a></li>
+        <li><a href="@Url.Action("Index", "SansiHome")">TRANG CHỦ</a></li>
+        <li><a href="@Url.Action("IndexDanhMucSanPham", "SansiHome")">DỊCH VỤ</a></li>
+        <li><a href="#">ƯU ĐÃI</a></li>
+        <li><a href="@Url.Action("IndexTinTuc2", "SansiHome")">THÔNG TIN THÊM</a></li>
     </ul>
     <div class="dangky">
         <p>ĐĂNG KÝ DỊCH VỤ</p>
@@ -49,53 +53,152 @@
 <div class="tim-kiem-sp">
     <div class="don-hang-nav">
         <div class="tim-kiem-sp-nav-top">
-            <div>
-                <a href="index_tao_don_hang.html">
+            <div class="@(ViewBag.Active == "TaoDonHang" ? "selection":"" )">
+                <div>
                     <i class="tao-don-hang"></i>
                     <p>Tạo đơn hàng</p>
-                </a>
+                </div>
+
+                <ul class="hide">
+                    <li>
+                        <a href="@Url.Action("IndexTaoDonHang", "SansiHome")">
+                            Tạo đơn hàng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("IndexTaoDonHangKyGui", "SansiHome")">
+                            Tạo đơn hàng
+                        </a>
+                    </li>
+                </ul>
+
             </div>
 
-            <div>
-                <a href="index_don_hang.html">
+            <div class="@(ViewBag.Active == "DonHang" ? "selection":"" )">
+                <div>
                     <i class="don-hang"></i>
                     <p>Đơn hàng</p>
-                </a>
+                </div>
+
+                <ul class="hide">
+                    <li>
+                        <a href="@Url.Action("IndexQuanLyDonHang", "SansiHome")">
+                            Tạo đơn hàng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("IndexQuanLyDonKyGui", "SansiHome")">
+                            Tạo đơn hàng
+                        </a>
+                    </li>
+                    </ulclass="hide">
             </div>
 
-            <div class="selection">
-                <a href="index-kien-hang.html">
+            <div class="@(ViewBag.Active == "KienHang" ? "selection":"" )">
+                <div>
                     <i class="kien-hang"></i>
                     <p>Kiện hàng</p>
-                </a>
+                </div>
+
+                <ul class="hide">
+                    <li>
+                        <a href="@Url.Action("IndexChiTietDonHang","SansiHome")">
+                            Tất cả kiên hàng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Giao hàng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Đã giao hàng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Kiểm hàng
+                        </a>
+                    </li>
+                </ul>
             </div>
 
-            <div>
-                <a href="#">
+            <div class="@(ViewBag.Active == "ViDienTu" ? "selection":"" )">
+                <div>
                     <i class="vi-dien-tu"></i>
                     <p>Ví điện tử</p>
-                </a>
+                </div>
+
+                <ul class="hide">
+                    <li>
+                        <a href="@Url.Action("IndexThanhToan","SansiHome")">
+                            Hương dẫn nạp tiền
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("IndexLichSuGiaoDich","SansiHome")">
+                            Lịch sử giao dịch
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("IndexRutTien","SansiHome")">
+                            Rút tiền
+                        </a>
+                    </li>
+                </ul>
             </div>
 
-            <div>
-                <a href="#">
+            <div class="@(ViewBag.Active == "KhieuNai" ? "selection":"" )">
+                <a href="@Url.Action("IndexKhieuNai","SansiHome")">
                     <i class="khieu-lai"></i>
-                    <p>Kiếu lại</p>
+                    <p>Kiếu nại</p>
                 </a>
             </div>
 
-            <div>
-                <a href="#">
+            <div class=" @(ViewBag.Active == "NhaCungCap" ? "selection":"" )">
+                <div>
                     <i class="nha-cung-cap"></i>
                     <p>Nhà cung cấp</p>
-                </a>
+                </div>
+
+                <ul class="hide">
+                    <li>
+                        <a href="@Url.Action("IndexNhaCungCap","SansiHome")">
+                            Tất cả NCC
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("IndexThemMoiNhaCungCap","SansiHome")">
+                            Thêm NCC mới
+                        </a>
+                    </li>
+                </ul>
             </div>
 
-            <div>
-                <a href="index-cai-dat.html">
+            <div class="@(ViewBag.Active == "CaiDat" ? "selection":"" )">
+                <div>
                     <i class="cai-dat"></i>
                     <p>cài đặt</p>
-                </a>
+                </div>
+
+                <ul class="hide">
+                    <li>
+                        <a href="@Url.Action("IndexCaiDatThayDoiThongTin","SansiHome")">
+                            Thông tin cá nhân
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("IndexCaiDatDiaChiGiaoHang","SansiHome")">
+                            Địa chỉ giao hàng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("IndexCaiDatThayDoiMatKhau","SansiHome")">
+                            Thay đổi mật khẩu
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="tim-kiem-sp-nav-bottom">
@@ -136,14 +239,14 @@
                 <button type="button"></button>
             </div>
             <div class="seach-bt">
-                <a href="index_tim_kiem_sp.html">
+                <a href="@Url.Action("IndexTaoDonHang","SansiHome")">
                     <button type="button">
                         <i class="i1"></i>
                         <p>Tạo đơn hàng trên hệ thống</p>
                     </button>
                 </a>
 
-                <a href="index_tao_don_hang.html">
+                <a href="@Url.Action("IndexTaoDonHangKyGui","SansiHome")">
                     <button type="button">
                         <i class="i2"></i>
                         <p>Tạo đơn hàng ký gửi</p>
@@ -157,7 +260,92 @@
                     </button>
                 </a>
             </div>
-            
+
+        </div>
+    </div>
+</div>
+<div class="login-mobile hide">
+    <div class="content">
+        <div class="banner">
+            <img src="~/images/nav/01.jpg" alt="banner" />
+            <div class="thong-tin-dang-nhap">
+                <img src="~/images/cai-dat/avatar.jpg" alt="banner" />
+                <div>
+                    <p>Ngọc Minh</p>
+                    <span>ngocminh2392@gmail.com</span>
+                </div>
+            </div>
+            <div class="btm-login">
+                <a href="#">
+                    <i class="icon-login"></i>
+                    <p>Login</p>
+                </a>
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li>
+                    <div>
+                        <a href="index.html">Trang chủ</a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <a href="#">Dịch vụ</a>
+                        <i class="icon1"></i>
+                    </div>
+                    <ul class="hide">
+                        <li>
+                            <a href="#">Dịch vụ 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Dịch vụ 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <a href="#">Ưu đãi</a>
+                        <i class="icon1"></i>
+                    </div>
+                    <ul class="hide">
+                        <li>
+                            <a href="#">Ưu đãi 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Ưu đãi 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <a href="#">Thông tin thêm</a>
+                        <i class="icon2"></i>
+                    </div>
+                    <ul>
+                        <li class="active">
+                            <a href="#">Bản giá</a>
+                        </li>
+                        <li>
+                            <a href="#">Hỏi đáp</a>
+                        </li>
+                        <li>
+                            <a href="#">Tin tức</a>
+                        </li>
+                        <li>
+                            <a href="#">Liên hệ</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="dangky btm-dkdv">
+            <a href="#">
+                <button type="button" class="dkdv">Đăng ký dịch vụ</button>
+            </a>
+        </div>
+        <div class="btm-close">
+            <button type="button" class="close">X</button>
         </div>
     </div>
 </div>

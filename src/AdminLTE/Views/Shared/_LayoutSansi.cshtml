@@ -5,19 +5,21 @@
     <meta name="description" content="Eden Group" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>@ViewBag.Title</title>
-
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <environment names="Development">
         <link rel="stylesheet" href="~/css/sansi-style.css" />
+
     </environment>
+    <link rel="stylesheet" href="~/css/sansi-media.css" />
 </head>
 
 <body data-active_menu="<%= var_active_menu %>">
     <div class="wrapper">
-       
+
         @{
             if (ViewBag.Type == 1)
             {
-                @Html.Partial("~/Views/Shared/Sansi/header.cshtml");
+                @Html.Partial("~/Views/Shared/Sansi/Header.cshtml");
             }
             else
             {
@@ -30,5 +32,6 @@
 </body>
 <script src="~/lib/jquery/jquery.js"></script>
 <script src="~/js/sanSi-site.js"></script>
+<script src="~/js/Sansi01.js"></script>
 <!-- <script src="./plugins/bootstrap/js/bootstrap.min.js"></script> -->
 </html>

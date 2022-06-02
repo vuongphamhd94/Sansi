@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "_LayoutSansi";
+    ViewBag.Title = "Khiếu nại";
+    ViewBag.Active = "KhieuNai";
+}
+<div class="container-khieu-nai">
+    <div class="tbn1">
+        <div class="title">
+            <p>Chờ xử lý <span>0</span></p>
+            <p>Đang xử lý <span>3</span></p>
+            <p>Đã xử lý <span>1</span></p>
+            <p>Đã hoàn thành <span>3</span></p>
+            <p>Đã huỷ <span>2</span></p>
+        </div>
+        <div class="content">
+            <div class="left">
+                <div>
+                    <input type="text" placeholder="Mã vận đơn hàng" />
+                    <input type="text" placeholder="Họ tên" />
+                    <input type="text" placeholder="Số điện thoại" />
+                    <select>
+                        <option>Lựa chọn trạng thái</option>
+                    </select>
+                </div>
+                <div>
+                    <select>
+                        <option>Lựa chọn loại khiếu nại</option>
+                    </select>
+                    <select>
+                        <option>Lựa chọn phương án</option>
+                    </select>
+                    <select>
+                        <option>Chọn nhân viên</option>
+                    </select>
+                    <input type="text" placeholder="Từ ngày" />
+                    <input type="text" placeholder="Đến ngày" />
+                </div>
+            </div>
+            <div class="right">
+                <button type="button">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="tbn2">
+        <table>
+            <tr>
+                <th>STT</th>
+                <th>Hình ảnh</th>
+                <th>Mã đơn hàng</th>
+                <th>Loại khiếu nại</th>
+                <th>Trạng thái khiếu nại</th>
+                <th>Ngày gửi</th>
+                <th>Thao tác</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
