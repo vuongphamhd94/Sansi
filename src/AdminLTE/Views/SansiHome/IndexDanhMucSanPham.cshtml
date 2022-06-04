@@ -1,204 +1,245 @@
-﻿@{
+﻿@using AdminLTE.Models.SansiModels;
+@model DanhMucSanPhamModel;
+
+@{
     Layout = "_LayoutSansi";
     ViewBag.Title = "Danh mục sản phẩm";
     ViewBag.Type = 1;
     ViewBag.Active = "DichVu";
+
 }
 
-<div class="thong-tin-them">
-    <div class="sub-thong-tin">
-        <ul>
-            <li>Trang chủ</li>
-            <li><i class="next"></i></li>
-            <li>Danh mục sản phẩm</li>
-        </ul>
-    </div>
-</div>
-<div class="comtainer-danh-muc-sp">
-    <div class="container">
-        <div class="nav">
-            <div>
-                <ul>
-                    <li>
-                        <a href="#">FASHION</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">Best Seller</a>
-                    </li>
-                    <li>
-                        <a href="#">Thời trang nữ</a>
-                    </li>
-                    <li>
-                        <a href="#">Thời trang trẻ con</a>
-                    </li>
-                    <li>
-                        <a href="#">Phụ kiện</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <img src="~/images/Danh-muc-sp/01_Home-1-4.jpg" alt="" />
-                <img class="is-desktop"
-                     src="~/images/Danh-muc-sp/02_Home-1-1.jpg"
-                     alt="" />
-            </div>
-        </div>
-        <div class="content">
-            <div class="is-desktop">
-                <img src="~/images/Danh-muc-sp/03_Home-1-4.jpg" alt="" />
-            </div>
-            <div>
-                <img src="~/images/Danh-muc-sp/Rectangle 6.1.jpg" alt="" />
-                <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
-                </div>
-            </div>
-            <div>
-                <img src="~/images/Danh-muc-sp/Rectangle 6.jpg" alt="" />
-                <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
-                </div>
-            </div>
-            <div class="is-desktop">
-                <img src="~/images/Danh-muc-sp/Rectangle 6.2.jpg" alt="" />
-                <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
-                </div>
-            </div>
-            <div class="is-desktop">
-                <img src="~/images/Danh-muc-sp/Rectangle 6.3.jpg" alt="" />
-                <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
-                </div>
-            </div>
+@if (Model == null)
+{
+    <div>Khong co du lieu</div>
+}
+else
+{
+
+    <div class="thong-tin-them">
+        <div class="sub-thong-tin">
+            <ul>
+                <li>Trang chủ</li>
+                <li><i class="next"></i></li>
+                <li>Danh mục sản phẩm</li>
+            </ul>
         </div>
     </div>
-    <div class="container">
-        <div class="nav">
-            <div>
-                <ul>
-                    <li>
-                        <a href="#">SPORT</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">Best Seller</a>
-                    </li>
-                    <li>
-                        <a href="#">Tenis</a>
-                    </li>
-                    <li>
-                        <a href="#">Bơi lội</a>
-                    </li>
-                    <li>
-                        <a href="#">Câu cá</a>
-                    </li>
-                </ul>
+    <div class="comtainer-danh-muc-sp">
+        <div class="container">
+            <div class="nav">
+                <div>
+                    <ul>
+                        <li>
+                            <a href="#">FASHION</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">Best Seller</a>
+                        </li>
+                        <li>
+                            <a href="#">Thời trang nữ</a>
+                        </li>
+                        <li>
+                            <a href="#">Thời trang trẻ con</a>
+                        </li>
+                        <li>
+                            <a href="#">Phụ kiện</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="~/images/Danh-muc-sp/01_Home-1-4.jpg" alt="" />
+                    <img class="is-desktop"
+                         src="~/images/Danh-muc-sp/02_Home-1-1.jpg"
+                         alt="" />
+                </div>
             </div>
-            <div>
-                <img src="~/images/Danh-muc-sp/01_Home-1-4.jpg" alt="" />
-                <img class="is-desktop"
-                     src="~/images/Danh-muc-sp/02_Home-1-1.jpg"
-                     alt="" />
+            <div class="content">
+                <div class="is-desktop">
+                    <img src="@Model.ThoiTrang.FirstOrDefault(x => x.Id == 1).UrlImage" alt="" />
+                </div>
+                @{
+                    @*for (int i = 2; i <= 5; i++)
+                        {
+                            if (i <= 3)
+                            {
+                                <div>
+                                    <img src="@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
+                                    <div>
+                                        <p>@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).TenSanPham</p>
+                                        <span>$@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="is-desktop">
+                                    <img src="@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
+                                    <div>
+                                        <p>@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).TenSanPham</p>
+                                        <span>$@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
+                                    </div>
+                                </div>
+
+                            }
+
+                        }*@
+                    foreach (var item in Model.ThoiTrang)
+                    {
+                        <div class="@(item.Id > 4 ? "is-desktop" : "")">
+                            <img src="@item.UrlImage" alt="" />
+                            <div>
+                                <p>@item.TenSanPham</p>
+                                <span>$@item.GiaSanPham</span>
+                            </div>
+                        </div>
+
+                    }
+                }
             </div>
         </div>
-        <div class="content">
-            <div class="is-desktop">
-                <img src="~/images/Danh-muc-sp/03_Home-1-4 (1).jpg" alt="" />
-            </div>
-            <div>
-                <img src="~/images/Danh-muc-sp/Rectangle 6 (1).jpg" alt="" />
+        <div class="container">
+            <div class="nav">
                 <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
+                    <ul>
+                        <li>
+                            <a href="#">SPORT</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">Best Seller</a>
+                        </li>
+                        <li>
+                            <a href="#">Tenis</a>
+                        </li>
+                        <li>
+                            <a href="#">Bơi lội</a>
+                        </li>
+                        <li>
+                            <a href="#">Câu cá</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="~/images/Danh-muc-sp/01_Home-1-4.jpg" alt="" />
+                    <img class="is-desktop"
+                         src="~/images/Danh-muc-sp/02_Home-1-1.jpg"
+                         alt="" />
                 </div>
             </div>
-            <div>
-                <img src="~/images/Danh-muc-sp/Rectangle 6.1 (1).jpg" alt="" />
+            <div class="content">
+                <div class="is-desktop">
+                    <img src="@Model.TheThao.FirstOrDefault(x => x.Id == 1).UrlImage" alt="" />
+                </div>
+                @{
+                    @*for (int i = 2; i <= 5; i++)
+                        {
+                            if (i <= 3)
+                            {
+                                <div>
+                                    <img src="@Model.TheThao.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
+                                    <div>
+                                        <p>@Model.TheThao.FirstOrDefault(x => x.Id == i).TenSanPham</p>
+                                        <span>$@Model.TheThao.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="is-desktop">
+                                    <img src="@Model.TheThao.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
+                                    <div>
+                                        <p>@Model.TheThao.FirstOrDefault(x => x.Id == i).TenSanPham</p>
+                                        <span>$@Model.TheThao.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
+                                    </div>
+                                </div>
+
+                            }
+
+                        }*@
+                    foreach (var item in Model.TheThao)
+                    {
+                        <div class="@(item.Id > 4 ? "is-desktop" : "")">
+                            <img src="@item.UrlImage" alt="" />
+                            <div>
+                                <p>@item.TenSanPham</p>
+                                <span>$@item.GiaSanPham</span>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="container">
+            <div class="nav">
                 <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
+                    <ul>
+                        <li>
+                            <a href="#">ELECTRONG</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">Best Seller</a>
+                        </li>
+                        <li>
+                            <a href="#">Telavison</a>
+                        </li>
+                        <li>
+                            <a href="#">Light & lamp</a>
+                        </li>
+                        <li>
+                            <a href="#">Home audio</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="~/images/Danh-muc-sp/01_Home-1-4.jpg" alt="" />
+                    <img class="is-desktop"
+                         src="~/images/Danh-muc-sp/02_Home-1-1.jpg"
+                         alt="" />
                 </div>
             </div>
-            <div class="is-desktop">
-                <img src="~/images/Danh-muc-sp/Rectangle 6.2 (1).jpg" alt="" />
-                <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
+            <div class="content">
+                <div class="is-desktop">
+                    <img src="@Model.DoGiaDung.FirstOrDefault(x => x.Id == 1).UrlImage" alt="" />
                 </div>
-            </div>
-            <div class="is-desktop">
-                <img src="~/images/Danh-muc-sp/Rectangle 6.3 (1).jpg" alt="" />
-                <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
-                </div>
+                @{
+                    @*for (int i = 2; i <= 5; i++)
+                        {
+                            if (i <= 3)
+                            {
+                                <div>
+                                    <img src="@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
+                                    <div>
+                                        <p>@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).TenSanPham</p>
+                                        <span>$@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="is-desktop">
+                                    <img src="@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
+                                    <div>
+                                        <p>@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).TenSanPham</p>
+                                        <span>$@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
+                                    </div>
+                                </div>
+
+                            }
+
+                        }*@
+                    foreach (var item in Model.DoGiaDung)
+                    {
+                        <div class="@(item.Id > 4 ? "is-desktop" : "")">
+                            <img src="@item.UrlImage" alt="" />
+                            <div>
+                                <p>@item.TenSanPham</p>
+                                <span>$@item.GiaSanPham</span>
+                            </div>
+                        </div>
+                    }
+                }
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="nav">
-            <div>
-                <ul>
-                    <li>
-                        <a href="#">ELECTRONG</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">Best Seller</a>
-                    </li>
-                    <li>
-                        <a href="#">Telavison</a>
-                    </li>
-                    <li>
-                        <a href="#">Light & lamp</a>
-                    </li>
-                    <li>
-                        <a href="#">Home audio</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <img src="~/images/Danh-muc-sp/01_Home-1-4.jpg" alt="" />
-                <img class="is-desktop"
-                     src="~/images/Danh-muc-sp/02_Home-1-1.jpg"
-                     alt="" />
-            </div>
-        </div>
-        <div class="content">
-            <div class="is-desktop">
-                <img src="~/images/Danh-muc-sp/03_Home-1-4 (2).jpg" alt="" />
-            </div>
-            <div>
-                <img src="~/images/Danh-muc-sp/Rectangle 6 (2).jpg" alt="" />
-                <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
-                </div>
-            </div>
-            <div>
-                <img src="~/images/Danh-muc-sp/Rectangle 6.1 (1).jpg" alt="" />
-                <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
-                </div>
-            </div>
-            <div class="is-desktop">
-                <img src="~/images/Danh-muc-sp/Rectangle 6.2 (2).jpg" alt="" />
-                <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
-                </div>
-            </div>
-            <div class="is-desktop">
-                <img src="~/images/Danh-muc-sp/Rectangle 6.3 (2).jpg" alt="" />
-                <div>
-                    <p>Sexy Dresses</p>
-                    <span>$46.21</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+}
+

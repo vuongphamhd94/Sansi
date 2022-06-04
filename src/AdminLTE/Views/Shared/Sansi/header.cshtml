@@ -16,7 +16,7 @@
     </div>
 </header>
 <nav>
-    <i class="nav-3"></i>
+    <i class="nav-3 is-mobile"></i>
     <div class="nav-thongtin">
         <i class="logo"></i>
         <div>
@@ -31,7 +31,7 @@
             <a href="@Url.Action("Index","SansiHome")">TRANG CHỦ</a>
         </li>
         <li  class="@(ViewBag.Active== "DichVu" ? "active": "" )">
-            <a href="@Url.Action("IndexDanhMucSanPham","SansiHome")">DỊCH VỤ</a>
+            <a href="@Url.Action("IndexDanhMucSanPham","SansiHome", new { id = 1})">DỊCH VỤ</a>
         </li>
         <li class="@(ViewBag.Active== "UuDai" ? "active": "" )">
             <a href="@Url.Action("IndexUuDai","SansiHome")">ƯU ĐÃI</a>
@@ -82,7 +82,7 @@
                 </li>
                 <li>
                     <div>
-                        <a href="@Url.Action("IndexDanhMucSanPham","SansiHome")">Dịch vụ</a>
+                        <a href="@Url.Action("IndexDanhMucSanPham","SansiHome", new { id = 1})">Dịch vụ</a>
                         <i class="icon1"></i>
                     </div>
                     <ul class="hide">

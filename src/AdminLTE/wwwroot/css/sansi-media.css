@@ -1,11 +1,15 @@
 ﻿
 @media (max-width: 1024px) {
+    body {
+        font-size: 10px;
+    }
+
     .el-tltks {
         --column: 2;
     }
 
     .is-mobile {
-        display: block;
+        display: none;
     }
 
         .is-mobile .seach-bt button {
@@ -39,9 +43,68 @@
     .container-sam-pham-hot > .content > div {
         width: 24%;
     }
+
+
+    .content-baner {
+        top: 9rem;
+        left: 20rem;
+        width: 50rem;
+    }
+
+
+    header, nav {
+        padding: 0 5%;
+    }
+    .logo{
+        background-position:bottom;
+        background-size: contain;
+        background-repeat:no-repeat;
+        width:5rem;
+    }
+    nav p{
+        font-size: 1.1rem;
+    }
+        nav p span{
+            font-size:0.9rem;
+        }
+    .nav-thongtin{
+        width:26rem;
+    }
+
+    header ul li, nav ul li{
+        margin: 0 1rem;
+    }
+
+    .dangky{
+        width: 11rem;
+        height 2rem;
+    }
+        .dangky::after {
+            width: 11rem;
+            height 2rem;
+        }
+        .dangky p {
+            font-size: 1rem;
+        }
+
+    nav-tracuu{
+        position:relative;
+    }
+    nav input {
+        font-size: 1rem;    
+    }
+    .tracuu{
+        width:15rem;
+        height:3rem;
+    }
+
+
+
+    .quyTrinh i{
+        width: 8rem;
+        height: 8rem;
+    }
 }
-
-
 
 @media (max-width: 415px) {
     .is-desktop {
@@ -508,7 +571,7 @@
     }
     .tim-kiem-sp .don-hang-nav .tim-kiem-sp-nav-top > div ul{
         position:relative;
-        bottom:0;
+        bottom:-1rem !important;
         background-color:white;
     }
 
@@ -586,6 +649,20 @@
         top: 1rem;
         left: 0.5rem;
     }
+
+
+
+
+    .container-sam-pham-hot > .content > div{
+        width:49%;
+    }
+        .container-sam-pham-hot > .content > div .title button {
+            font-size: 0.8rem;
+            width: 7rem;
+            height: 3rem;
+            top: 2rem;
+            left: 1.5rem;
+        }
 }
 
 

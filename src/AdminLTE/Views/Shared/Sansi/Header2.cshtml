@@ -32,7 +32,7 @@
     </div>
     <ul>
         <li><a href="@Url.Action("Index", "SansiHome")">TRANG CHỦ</a></li>
-        <li><a href="@Url.Action("IndexDanhMucSanPham", "SansiHome")">DỊCH VỤ</a></li>
+        <li><a href="@Url.Action("IndexDanhMucSanPham", "SansiHome" , new { id = 1})">DỊCH VỤ</a></li>
         <li><a href="#">ƯU ĐÃI</a></li>
         <li><a href="@Url.Action("IndexTinTuc2", "SansiHome")">THÔNG TIN THÊM</a></li>
     </ul>
@@ -286,12 +286,12 @@
             <ul>
                 <li>
                     <div>
-                        <a href="index.html">Trang chủ</a>
+                        <a href="@Url.Action("Index","SansiHome")">Trang chủ</a>
                     </div>
                 </li>
                 <li>
                     <div>
-                        <a href="#">Dịch vụ</a>
+                        <a href="@Url.Action("IndexDanhMucSanPham","SansiHome" , new { id = 1})">Dịch vụ</a>
                         <i class="icon1"></i>
                     </div>
                     <ul class="hide">
