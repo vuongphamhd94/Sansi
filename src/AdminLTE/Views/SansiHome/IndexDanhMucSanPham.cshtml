@@ -55,44 +55,26 @@ else
                 </div>
             </div>
             <div class="content">
-                <div class="is-desktop">
-                    <img src="@Model.ThoiTrang.FirstOrDefault(x => x.Id == 1).UrlImage" alt="" />
-                </div>
                 @{
-                    @*for (int i = 2; i <= 5; i++)
-                        {
-                            if (i <= 3)
-                            {
-                                <div>
-                                    <img src="@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
-                                    <div>
-                                        <p>@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).TenSanPham</p>
-                                        <span>$@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
-                                    </div>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="is-desktop">
-                                    <img src="@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
-                                    <div>
-                                        <p>@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).TenSanPham</p>
-                                        <span>$@Model.ThoiTrang.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
-                                    </div>
-                                </div>
 
-                            }
-
-                        }*@
                     foreach (var item in Model.ThoiTrang)
                     {
-                        <div class="@(item.Id > 4 ? "is-desktop" : "")">
-                            <img src="@item.UrlImage" alt="" />
-                            <div>
-                                <p>@item.TenSanPham</p>
-                                <span>$@item.GiaSanPham</span>
+                        if (item.Id == 1)
+                        {
+                            <div class="is-desktop">
+                                <img src="@item.UrlImage" alt="" />
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <div class="@(item.Id > 4 ? "is-desktop" : "")">
+                                <img src="@item.UrlImage" alt="" />
+                                <div>
+                                    <p>@item.TenSanPham</p>
+                                    <span>$@item.GiaSanPham</span>
+                                </div>
+                            </div>
+                        }
 
                     }
                 }
@@ -127,44 +109,28 @@ else
                 </div>
             </div>
             <div class="content">
-                <div class="is-desktop">
-                    <img src="@Model.TheThao.FirstOrDefault(x => x.Id == 1).UrlImage" alt="" />
-                </div>
+
                 @{
-                    @*for (int i = 2; i <= 5; i++)
-                        {
-                            if (i <= 3)
-                            {
-                                <div>
-                                    <img src="@Model.TheThao.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
-                                    <div>
-                                        <p>@Model.TheThao.FirstOrDefault(x => x.Id == i).TenSanPham</p>
-                                        <span>$@Model.TheThao.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
-                                    </div>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="is-desktop">
-                                    <img src="@Model.TheThao.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
-                                    <div>
-                                        <p>@Model.TheThao.FirstOrDefault(x => x.Id == i).TenSanPham</p>
-                                        <span>$@Model.TheThao.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
-                                    </div>
-                                </div>
 
-                            }
-
-                        }*@
                     foreach (var item in Model.TheThao)
                     {
-                        <div class="@(item.Id > 4 ? "is-desktop" : "")">
-                            <img src="@item.UrlImage" alt="" />
-                            <div>
-                                <p>@item.TenSanPham</p>
-                                <span>$@item.GiaSanPham</span>
+                        if (item.Id == 1)
+                        {
+                            <div class="is-desktop">
+                                <img src="@item.UrlImage" alt="" />
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <div class="@(item.Id > 4 ? "is-desktop" : "")">
+                                <img src="@item.UrlImage" alt="" />
+                                <div>
+                                    <p>@item.TenSanPham</p>
+                                    <span>$@item.GiaSanPham</span>
+                                </div>
+                            </div>
+                        }
+
                     }
                 }
             </div>
@@ -198,44 +164,27 @@ else
                 </div>
             </div>
             <div class="content">
-                <div class="is-desktop">
-                    <img src="@Model.DoGiaDung.FirstOrDefault(x => x.Id == 1).UrlImage" alt="" />
-                </div>
                 @{
-                    @*for (int i = 2; i <= 5; i++)
-                        {
-                            if (i <= 3)
-                            {
-                                <div>
-                                    <img src="@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
-                                    <div>
-                                        <p>@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).TenSanPham</p>
-                                        <span>$@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
-                                    </div>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="is-desktop">
-                                    <img src="@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).UrlImage" alt="" />
-                                    <div>
-                                        <p>@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).TenSanPham</p>
-                                        <span>$@Model.DoGiaDung.FirstOrDefault(x => x.Id == i).GiaSanPham</span>
-                                    </div>
-                                </div>
 
-                            }
-
-                        }*@
                     foreach (var item in Model.DoGiaDung)
                     {
-                        <div class="@(item.Id > 4 ? "is-desktop" : "")">
-                            <img src="@item.UrlImage" alt="" />
-                            <div>
-                                <p>@item.TenSanPham</p>
-                                <span>$@item.GiaSanPham</span>
+                        if (item.Id == 1)
+                        {
+                            <div class="is-desktop">
+                                <img src="@item.UrlImage" alt="" />
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <div class="@(item.Id > 4 ? "is-desktop" : "")">
+                                <img src="@item.UrlImage" alt="" />
+                                <div>
+                                    <p>@item.TenSanPham</p>
+                                    <span>$@item.GiaSanPham</span>
+                                </div>
+                            </div>
+                        }
+
                     }
                 }
             </div>

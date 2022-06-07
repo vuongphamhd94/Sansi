@@ -46,7 +46,7 @@ namespace AdminLTE.Controllers.Sansi
             var danhMucSanPham1 = new DanhMucSanPhamModel
             {
                 Id = 1,
-                DoGiaDung = new List<SanPhamModel>
+                ThoiTrang = new List<SanPhamModel>
                 {
                     new SanPhamModel
                     {
@@ -65,8 +65,8 @@ namespace AdminLTE.Controllers.Sansi
                     {
                         Id = 3,
                         GiaSanPham = 41.2,
-                        UrlImage = "Sexy Dresses 2",
-                        TenSanPham = "/images/Danh-muc-sp/Rectangle 6.jpg",
+                        TenSanPham = "Sexy Dresses 2",
+                        UrlImage = "/images/Danh-muc-sp/Rectangle 6.jpg",
                     },
                     new SanPhamModel
                     {
@@ -128,7 +128,7 @@ namespace AdminLTE.Controllers.Sansi
                     }
 
                 },
-                ThoiTrang = new List<SanPhamModel>
+                DoGiaDung = new List<SanPhamModel>
                 {
                     new SanPhamModel
                     {
