@@ -59,7 +59,7 @@ else
 
                     foreach (var item in Model.ThoiTrang)
                     {
-                        if (item.Id == 1)
+                        if (item.TenSanPham == "home")
                         {
                             <div class="is-desktop">
                                 <img src="@item.UrlImage" alt="" />
@@ -67,7 +67,7 @@ else
                         }
                         else
                         {
-                            <div class="@(item.Id > 4 ? "is-desktop" : "")">
+                            <div class="@(item.Id > 4 ? "" : "")">
                                 <img src="@item.UrlImage" alt="" />
                                 <div>
                                     <p>@item.TenSanPham</p>
@@ -114,7 +114,7 @@ else
 
                     foreach (var item in Model.TheThao)
                     {
-                        if (item.Id == 1)
+                        if (item.TenSanPham == "home")
                         {
                             <div class="is-desktop">
                                 <img src="@item.UrlImage" alt="" />
@@ -122,7 +122,7 @@ else
                         }
                         else
                         {
-                            <div class="@(item.Id > 4 ? "is-desktop" : "")">
+                            <div class="@(item.Id > 4 ? "" : "")">
                                 <img src="@item.UrlImage" alt="" />
                                 <div>
                                     <p>@item.TenSanPham</p>
@@ -168,7 +168,7 @@ else
 
                     foreach (var item in Model.DoGiaDung)
                     {
-                        if (item.Id == 1)
+                        if (item.TenSanPham == "home")
                         {
                             <div class="is-desktop">
                                 <img src="@item.UrlImage" alt="" />
@@ -176,7 +176,7 @@ else
                         }
                         else
                         {
-                            <div class="@(item.Id > 4 ? "is-desktop" : "")">
+                            <div class="@(item.Id > 4 ? "" : "")">
                                 <img src="@item.UrlImage" alt="" />
                                 <div>
                                     <p>@item.TenSanPham</p>

@@ -51,30 +51,61 @@
                     <h3>BÀI XEM NHIỀU NHẤT</h3>
                 </div>
                 <div class="container2-right-content">
-                    @for (int i = 1; i <= 6; i++)
+                    @{
+                        int i = 2;
+                        foreach (TinMoiModel item in @Model.ListTinMoi)
+                        {
+                            <div>
+                                <a href="@Url.Action("IndexChiTietTin", "SansiHome", new { id = i })">
+                                    <img src="@item.UrlImage" alt="images" />
+                                </a>
+
+                                <div>
+                                    <a href="@Url.Action("IndexChiTietTin", "SansiHome", new { id = i }) ">
+                                        <h3>
+                                            @item.Header
+                                        </h3>
+                                    </a>
+                                    <div class="sub-time">
+                                        <i class="icon-dong-ho"></i>
+                                        <p class="time">@item.Time</p>
+                                    </div>
+                                    <p>
+                                        @item.Note
+                                    </p>
+                                </div>
+                            </div>
+                           i++;
+                        }
+
+                    }
+
+
+                   
+                    @*@for (int i = 2; i <= 7; i++)
                     {
                         <div>
                             <a href="@Url.Action("IndexChiTietTin", "SansiHome", new { id = i })">
-                                <img src="@Model.ListTinMoi.FirstOrDefault(x => x.Id == i).UrlImage" alt="images" />
+                                <img src="@Model.ListTinMoi.FirstOrDefault(x => x.ChiTietTinModelId == i).UrlImage" alt="images" />
                             </a>
-                            
+
                             <div>
                                 <a href="@Url.Action("IndexChiTietTin", "SansiHome", new { id = i }) ">
                                     <h3>
-                                        @Model.ListTinMoi.FirstOrDefault(x => x.Id == i).Header
+                                        @Model.ListTinMoi.FirstOrDefault(x => x.ChiTietTinModelId == i).Header
                                     </h3>
                                 </a>
                                 <div class="sub-time">
                                     <i class="icon-dong-ho"></i>
-                                    <p class="time">@Model.ListTinMoi.FirstOrDefault(x => x.Id == i).Time</p>
+                                    <p class="time">@Model.ListTinMoi.FirstOrDefault(x => x.ChiTietTinModelId == i).Time</p>
                                 </div>
                                 <p>
-                                    @Model.ListTinMoi.FirstOrDefault(x => x.Id == i).Note
+                                    @Model.ListTinMoi.FirstOrDefault(x => x.ChiTietTinModelId == i).Note
                                 </p>
                             </div>
                         </div>
 
-                    }
+                    }*@
 
 
                 </div>

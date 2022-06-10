@@ -24,7 +24,7 @@ namespace AdminLTE.Controllers.Sansi
         /// <returns></returns>
         public IActionResult Index()
         {
-            //var t = _dbContext.SanPham.ToList();
+            var t = _dbContext.SanPham.ToList();
             return View();
         }
         public IActionResult IndexQuanLyDonHang()
@@ -55,132 +55,155 @@ namespace AdminLTE.Controllers.Sansi
         {
             return View();
         }
+
+        //summary
+        // danh sách các sản phẩm Sansi
         public IActionResult IndexDanhMucSanPham(int id)
         {
             var listDanhMucSanPham = new List<DanhMucSanPhamModel>();
+            var listSanPham = new List<SanPhamModel>();
+            var thoiTrang = new List<SanPhamModel>();
+            var theThao = new List<SanPhamModel>();
+            var doGiaDung = new List<SanPhamModel>();
+            listSanPham.AddRange(_dbContext.SanPham.ToList());
+
+            thoiTrang = listSanPham.Where(x => x.Type == 1).ToList();
+            theThao = listSanPham.Where(x => x.Type == 2).ToList();
+            doGiaDung = listSanPham.Where(x => x.Type == 3).ToList();
 
             var danhMucSanPham1 = new DanhMucSanPhamModel
             {
                 Id = 1,
-                ThoiTrang = new List<SanPhamModel>
-                {
-                    new SanPhamModel
-                    {
-                        Id = 1,
-                        UrlImage = "/images/Danh-muc-sp/03_Home-1-4.jpg",
-                    },
 
-                    new SanPhamModel {
-                        Id = 2,
-                        GiaSanPham = 46.2,
-                        TenSanPham = "Sexy Dresses",
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6.1.jpg",
+                ThoiTrang = thoiTrang,
+                DoGiaDung=doGiaDung,
+                TheThao=theThao
 
-                    },
-                    new SanPhamModel
-                    {
-                        Id = 3,
-                        GiaSanPham = 41.2,
-                        TenSanPham = "Sexy Dresses 2",
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6.jpg",
-                    },
-                    new SanPhamModel
-                    {
-                        Id = 4,
-                        GiaSanPham = 32.2,
-                        TenSanPham = "Sexy Dresses 3",
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6.2.jpg",
-                    },
-                    new SanPhamModel
-                    {
-                        Id = 5,
-                        GiaSanPham = 62.1,
-                        TenSanPham = "Sexy Dresses",
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6.3.jpg",
-                    },
-                },
-                TheThao = new List<SanPhamModel>
-                {
-                    new SanPhamModel
-                    {
-                        Id = 1,
-                        UrlImage = "/images/Danh-muc-sp/03_Home-1-4 (1).jpg",
-                    },
+                //ThoiTrang = new List<SanPhamModel>
 
-                    new SanPhamModel
-                    {
-                        Id = 2,
-                        GiaSanPham = 12.1,
-                        TenSanPham = "Sản phẩm 1",
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6 (1).jpg",
+                //{
 
-                    },
 
-                    new SanPhamModel
-                    {
-                        Id = 3,
-                        GiaSanPham = 14.1,
-                        TenSanPham = "Sản phẩm 2",
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6.1 (1).jpg",
 
-                    },
+                //    new SanPhamModel
+                //    {
+                //        Id = 1,
+                //        UrlImage = "/images/Danh-muc-sp/03_Home-1-4.jpg",
+                //    },
 
-                    new SanPhamModel
-                    {
-                        Id = 4,
-                        GiaSanPham = 16.1,
-                        TenSanPham = "Sản phẩm 3",
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6.2 (1).jpg",
+                //    new SanPhamModel {
+                //        Id = 2,
+                //        GiaSanPham = 46.2,
+                //        TenSanPham = "Sexy Dresses",
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6.1.jpg",
 
-                    },
+                //    },
+                //    new SanPhamModel
+                //    {
+                //        Id = 3,
+                //        GiaSanPham = 41.2,
+                //        TenSanPham = "Sexy Dresses 2",
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6.jpg",
+                //    },
+                //    new SanPhamModel
+                //    {
+                //        Id = 4,
+                //        GiaSanPham = 32.2,
+                //        TenSanPham = "Sexy Dresses 3",
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6.2.jpg",
+                //    },
+                //    new SanPhamModel
+                //    {
+                //        Id = 5,
+                //        GiaSanPham = 62.1,
+                //        TenSanPham = "Sexy Dresses",
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6.3.jpg",
+                //    },
+                //}
+                //,
+                //TheThao = new List<SanPhamModel>
+                //{
+                //    new SanPhamModel
+                //    {
+                //        Id = 1,
+                //        UrlImage = "/images/Danh-muc-sp/03_Home-1-4 (1).jpg",
+                //    },
 
-                    new SanPhamModel
-                    {
-                        Id = 5,
-                        GiaSanPham = 65.2,
-                        TenSanPham = "Sản phẩm 3",
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6.3 (1).jpg",
+                //    new SanPhamModel
+                //    {
+                //        Id = 2,
+                //        GiaSanPham = 12.1,
+                //        TenSanPham = "Sản phẩm 1",
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6 (1).jpg",
 
-                    }
+                //    },
 
-                },
-                DoGiaDung = new List<SanPhamModel>
-                {
-                    new SanPhamModel
-                    {
-                        Id = 1,
-                        UrlImage = "/images/Danh-muc-sp/03_Home-1-4 (2).jpg",
-                    },
-                    new SanPhamModel
-                    {
-                        Id = 2,
-                        GiaSanPham = 13.1,
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6 (2).jpg",
-                        TenSanPham = "Bếp điênh",
-                    },
-                    new SanPhamModel
-                    {
-                        Id = 3,
-                        GiaSanPham = 16.1,
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6.1 (1).jpg",
-                        TenSanPham = "Giầy thể thao",
-                    },
-                    new SanPhamModel
-                    {
-                        Id = 4,
-                        GiaSanPham = 45.1,
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6.2 (2).jpg",
-                        TenSanPham = "Bếp điện 2",
-                    },
-                    new SanPhamModel
-                    {
-                        Id = 5,
-                        GiaSanPham = 45.1,
-                        UrlImage = "/images/Danh-muc-sp/Rectangle 6.3 (2).jpg",
-                        TenSanPham = "Bếp điện 3",
-                    },
+                //    new SanPhamModel
+                //    {
+                //        Id = 3,
+                //        GiaSanPham = 14.1,
+                //        TenSanPham = "Sản phẩm 2",
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6.1 (1).jpg",
 
-                }
+                //    },
+
+                //    new SanPhamModel
+                //    {
+                //        Id = 4,
+                //        GiaSanPham = 16.1,
+                //        TenSanPham = "Sản phẩm 3",
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6.2 (1).jpg",
+
+                //    },
+
+                //    new SanPhamModel
+                //    {
+                //        Id = 5,
+                //        GiaSanPham = 65.2,
+                //        TenSanPham = "Sản phẩm 3",
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6.3 (1).jpg",
+
+                //    }
+
+                //}
+                //,
+                //DoGiaDung = new List<SanPhamModel>
+                //{
+                //    new SanPhamModel
+                //    {
+                //        Id = 1,
+                //        UrlImage = "/images/Danh-muc-sp/03_Home-1-4 (2).jpg",
+                //    },
+                //    new SanPhamModel
+                //    {
+                //        Id = 2,
+                //        GiaSanPham = 13.1,
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6 (2).jpg",
+                //        TenSanPham = "Bếp điênh",
+                //    },
+                //    new SanPhamModel
+                //    {
+                //        Id = 3,
+                //        GiaSanPham = 16.1,
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6.1 (1).jpg",
+                //        TenSanPham = "Giầy thể thao",
+                //    },
+                //    new SanPhamModel
+                //    {
+                //        Id = 4,
+                //        GiaSanPham = 45.1,
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6.2 (2).jpg",
+                //        TenSanPham = "Bếp điện 2",
+                //    },
+                //    new SanPhamModel
+                //    {
+                //        Id = 5,
+                //        GiaSanPham = 45.1,
+                //        UrlImage = "/images/Danh-muc-sp/Rectangle 6.3 (2).jpg",
+                //        TenSanPham = "Bếp điện 3",
+                //    },
+
+                //}
             };
 
             listDanhMucSanPham.Add(danhMucSanPham1);
@@ -219,6 +242,15 @@ namespace AdminLTE.Controllers.Sansi
         public IActionResult IndexChiTietTin(int id)
         {
             var lstModel = new List<ChiTietTinModel>();
+            var listChiTietTien_DB = _dbContext.ChiTietTin.ToList();
+            var listTinMoi_DB = _dbContext.TinMoi.ToList();
+            foreach (var item in listChiTietTien_DB)
+            {
+                item.ListTinMoi = listTinMoi_DB.Where(x => x.ChiTietTinModelId == item.Id).ToList();
+            }
+
+            /*
+             * 
             var model1 = new ChiTietTinModel
             {
                 Id = 1,
@@ -783,7 +815,11 @@ namespace AdminLTE.Controllers.Sansi
             lstModel.Add(model4);
             lstModel.Add(model5);
             lstModel.Add(model6);
-            var model = lstModel.FirstOrDefault(x => x.Id == id);
+            
+             */
+
+
+            var model = listChiTietTien_DB.FirstOrDefault(x => x.Id == id);
 
             return View(model);
         }

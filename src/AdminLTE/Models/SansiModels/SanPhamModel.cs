@@ -11,5 +11,6 @@ namespace AdminLTE.Models.SansiModels
         public string TenSanPham { get; set; }
         public double? GiaSanPham { get; set; }
         public string UrlImage { get; set; }
+        public int Type { get; set; }
     }
 }

@@ -12,5 +12,6 @@ namespace AdminLTE.Models.SansiModels
         public string UrlImage { get; set; }
         public DateTime Time { get; set; }
         public string Note { get; set; }
+        public int ChiTietTinModelId { get; set; }
     }
 }
