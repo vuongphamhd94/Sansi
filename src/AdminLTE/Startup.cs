@@ -54,18 +54,18 @@ namespace AdminLTE
 
             var mvcBuilder = services.AddMvc(config =>
             {
-                //var policy = new AuthorizationPolicyBuilder()
-                //                 .RequireAuthenticatedUser()
-                //                 .Build();
-                //config.Filters.Add(new AuthorizeFilter(policy));
+                var policy = new AuthorizationPolicyBuilder()
+                                 .RequireAuthenticatedUser()
+                                 .Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
             });
 
             mvcBuilder.SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
-            //services.Configure<CookieAuthenticationOptions>(options =>
-            //{
-            //    options.LoginPath = new PathString("/Account/Login");
-            //});
+            services.Configure<CookieAuthenticationOptions>(options =>
+            {
+                options.LoginPath = new PathString("/Account/Login");
+            });
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
@@ -90,8 +90,8 @@ namespace AdminLTE
 
             app.UseStaticFiles();
             app.UseRouting();
-            //app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             //Add middleware here
             app.UseMiddleware<RequestLoggingMiddleware>();

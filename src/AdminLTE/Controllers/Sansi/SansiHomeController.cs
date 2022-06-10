@@ -2,13 +2,29 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using AdminLTE.Data;
 
 namespace AdminLTE.Controllers.Sansi
 {
     public class SansiHomeController : Controller
     {
+        private readonly ApplicationDbContext _dbContext;
+
+        #region Ctor
+
+        public SansiHomeController(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        #endregion
+        /// <summary>
+        /// Trang chủ san-si
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
+            //var t = _dbContext.SanPham.ToList();
             return View();
         }
         public IActionResult IndexQuanLyDonHang()
@@ -207,13 +223,13 @@ namespace AdminLTE.Controllers.Sansi
             {
                 Id = 1,
                 Content1 = "Khi bán hàng online tăng trưởng thần tốc nhờ... giao hàng hỏa tốc Không còn cảnh chờ đợi 3," +
-                "4 ngày hoặc vài tuần,"+
-               " người tiêu dùng trực tuyến bây giờ có khi chỉ cần 2 đến 4 giờ là cầm được trong tay món hàng ưng ý.Người ta nói vui,"+
-               " đặt hàng online nhanh hơn nhiều so với việc sắp xếp được công việc để tới tận cửa hàng,"+
+                "4 ngày hoặc vài tuần," +
+               " người tiêu dùng trực tuyến bây giờ có khi chỉ cần 2 đến 4 giờ là cầm được trong tay món hàng ưng ý.Người ta nói vui," +
+               " đặt hàng online nhanh hơn nhiều so với việc sắp xếp được công việc để tới tận cửa hàng," +
                 "hay vượt kẹt xe từ quận này sang quận kia để mua sắm.Tốc độ giao hàng “khủng” của các dịch vụ giao hàng hỏa tốc đang thực sự nhăm nhe giành thị trường của giao hàng truyền thống.",
 
-                Content2= "Phục vụ tận răng “cơn khát” chốt đơn hàng của thị trường thương mại điện tử Cuộc đua của các chủ shop" +
-                " online không chỉ nằm ở việc kênh bán hàng “hot\" tới đâu, livestream sản phẩm bao nhiêu lượt “hóng”. Hơn nhau là"+
+                Content2 = "Phục vụ tận răng “cơn khát” chốt đơn hàng của thị trường thương mại điện tử Cuộc đua của các chủ shop" +
+                " online không chỉ nằm ở việc kênh bán hàng “hot\" tới đâu, livestream sản phẩm bao nhiêu lượt “hóng”. Hơn nhau là" +
                 "còn ở hiệu quả và tốc độ của việc chốt đơn, giao hàng. Nếu như trước đây, khi hàng được giao xong, chủ shop vẫn phải" +
                 " chờ đợi đối soát mới nhận lại được tiền mua hàng, tỷ lệ trả hàng cao với nhiều lí do khó kiểm soát từ phía người mua," +
                 " thì với các dịch vụ giao hàng hỏa tốc nội thành, các vấn đề này được giải quyết ở mức cao nhất, tốc độ “khủng” của kiểu giao hàng mới," +
@@ -237,7 +253,7 @@ namespace AdminLTE.Controllers.Sansi
 
                 Header = "KHI BÁN HÀNG ONLINE TĂNG TRƯỞNG THẦN TỐC NHỜ... GIAO HÀNG HỎA TỐC",
 
-                UrlImage= "/images/thong-tin-them/01.svg",
+                UrlImage = "/images/thong-tin-them/01.svg",
 
                 ListTinMoi = new List<TinMoiModel> {
                     new TinMoiModel {
@@ -768,7 +784,7 @@ namespace AdminLTE.Controllers.Sansi
             lstModel.Add(model5);
             lstModel.Add(model6);
             var model = lstModel.FirstOrDefault(x => x.Id == id);
-            
+
             return View(model);
         }
         public IActionResult IndexTinTuc2()
