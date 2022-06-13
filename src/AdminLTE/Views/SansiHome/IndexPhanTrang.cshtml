@@ -1,0 +1,23 @@
+﻿@using AdminLTE.Models.SansiModels;
+@model List<SanPhamModel>;
+@{
+    Layout = "_LayoutSansi";
+    ViewBag.Title = "Tạp phân trang";
+    ViewBag.Type = 1;
+    ViewBag.Active = "TrangChu";
+}
+
+<div class="trang">
+    <button id="pr">pr</button>
+    <span>1</span>
+    <button id="nx">nx</button>
+</div>
+
+<div>
+    @{ 
+        foreach (var item in Model)
+        {
+        <img src="@item.UrlImage" style="width: 250px">
+        }
+    }
+</div>

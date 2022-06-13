@@ -61,12 +61,25 @@ namespace AdminLTE.Controllers.Sansi
         // danh sách các sản phẩm Sansi
         public JsonResult AddDanhMucSanPham(SanPhamModel data)
         {
-            _dbContext.SanPham.Add(data);
+            //_dbContext.SanPham.Add(data);
+            //_dbContext.SanPham.Remove(data);
+            var list = _dbContext.SanPham.ToList();
+            var sanPham = list.FirstOrDefault(x => x.Id == data.Id);
+            sanPham.GiaSanPham = data.GiaSanPham;
+            sanPham.Type = data.Type;
+            sanPham.TenSanPham = data.TenSanPham;
+
+            _dbContext.SanPham.Update(sanPham);
             _dbContext.SaveChanges();
-            return new JsonResult("");
+            return new JsonResult("update Thanh Cong ");
         }
         public IActionResult IndexDanhMucSanPham(int id)
         {
+            var p1 = _dbContext.SanPham.Skip(0).Take(5).ToList();
+            var p2 = _dbContext.SanPham.Skip(5).Take(5).ToList();
+            var p3 = _dbContext.SanPham.Skip(10).Take(5).ToList();
+            var p4 = _dbContext.SanPham.Skip(15).Take(5).ToList();
+
             var listDanhMucSanPham = new List<DanhMucSanPhamModel>();
             var listSanPham = new List<SanPhamModel>();
             var thoiTrang = new List<SanPhamModel>();
@@ -153,6 +166,30 @@ namespace AdminLTE.Controllers.Sansi
         public IActionResult IndexUuDai()
         {
             return View();
+        }
+
+        //public IActionResult IndexPhanTrang(PhanTrang data)
+        //{
+
+        //    var listShow = new List<SanPhamModel>();
+        //    listShow = _dbContext.SanPham.Skip(data.p * data.n).Take(data.n).ToList();
+        //    return View(listShow);
+        //    //return View();
+        //}
+        [HttpGet]
+        public IActionResult IndexPhanTrang()
+        {
+            var listShow = new List<SanPhamModel>();
+            listShow = _dbContext.SanPham.Skip(0).Take(5).ToList();
+            return View(listShow);
+        }
+
+        [HttpPost]
+        public IActionResult IndexPhanTrang(PhanTrang data)
+        {
+            var listShow = new List<SanPhamModel>();
+            listShow = _dbContext.SanPham.Skip(data.p * data.n).Take(data.n).ToList();
+            return View(listShow);
         }
     }
 }

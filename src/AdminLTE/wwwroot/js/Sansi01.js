@@ -1,5 +1,6 @@
 ﻿////const { Button } = require("bootstrap");
 
+
 let tieuDe = document.querySelectorAll(".tim-kiem-sp-nav-top > div");
 for (let i = 0; i < tieuDe.length; i++) {
     tieuDe[i].addEventListener("click", function () {
@@ -8,7 +9,7 @@ for (let i = 0; i < tieuDe.length; i++) {
         }
         for (let j = 0; j < tieuDe.length; j++) {
             if (j == 4) {
-               continue;
+                continue;
             }
             let ul = tieuDe[j].querySelector("ul");
             if (ul.classList != "hide") {
@@ -31,30 +32,66 @@ for (let i = 0; i < tieuDe.length; i++) {
 
 let bt = document.querySelector("#bt-sm");
 let sanPham = [];
-bt.addEventListener("click", function () {
+if (bt) {
+    bt.addEventListener("click", function () {
 
-    // let newSanPham  = {
-    //    name: document.querySelector("#name").value,
-    //    title: document.querySelector("#image").value,
-    //    price: document.querySelector("#price")
-    //}
-    //sanPham.push(newSanPham);
-    //console.log(newSanPham);
-
-    
-    $.ajax({
-        url: "/SansiHome/AddDanhMucSanPham",
-        method: "POST",
-        data: {
-            /*Id: 2,*/
-            TenSanPham: "San Pham 01",
-            Type: 1,
-            GiaSanPham: 12.5,
-            UrlImage: "link o1"
+        let newSanPham = {
+            name: document.querySelector("#name").value,
+            title: document.querySelector("#image").value,
+            price: document.querySelector("#price")
         }
-    }).done(function () {
-        console.log("Hoan thanh")
-    });
-});
+        sanPham.push(newSanPham);
+        console.log(newSanPham);
 
-/*let url = "/cotrollerName/functionName";*/
+
+        $.ajax({
+            url: "/SansiHome/AddDanhMucSanPham",
+            /* method: "POST",*/
+            data: {
+                p: 19,
+                TenSanPham: "San Pham 01",
+                Type: 1,
+                GiaSanPham: 12.5,
+                //UrlImage: "link 02"
+            }
+        }).done(function (rs) {
+            alert(rs);
+        });
+    });
+}
+
+
+
+let pr = document.querySelector("#pr");
+let nx = document.querySelector("#nx");
+let pg = document.querySelector(".trang>span");
+
+console.log(pg.textContent);
+
+show(5)
+
+
+function show(n) {
+    let t = {
+        data: {
+            n: 5,
+            p: 1
+        }
+    };
+
+    let data = JSON.stringify(t);
+    debugger
+    $.ajax({
+        url: "/SansiHome/IndexPhanTrang",
+        type: "POST",
+        contentType: "application/json",
+        dataType: "json",
+        data: data,
+        success: function (response) {
+            debugger
+        },
+        error: function (response) {
+            debugger
+        }
+    })
+}
