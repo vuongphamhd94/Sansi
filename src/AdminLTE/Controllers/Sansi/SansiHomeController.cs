@@ -188,7 +188,7 @@ namespace AdminLTE.Controllers.Sansi
         public IActionResult IndexPhanTrang(PhanTrang data)
         {
             var listShow = new List<SanPhamModel>();
-            listShow = _dbContext.SanPham.Skip(data.p * data.n).Take(data.n).ToList();
+            listShow = _dbContext.SanPham.Skip((data.p-1) * data.n).Take(data.n).ToList();
             return View(listShow);
         }
     }

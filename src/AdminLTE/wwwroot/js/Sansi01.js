@@ -48,6 +48,7 @@ if (bt) {
             url: "/SansiHome/AddDanhMucSanPham",
             /* method: "POST",*/
             data: {
+                id : 100,
                 p: 19,
                 TenSanPham: "San Pham 01",
                 Type: 1,
@@ -80,18 +81,19 @@ function show(n) {
     };
 
     let data = JSON.stringify(t);
-    debugger
+    //debugger
     $.ajax({
         url: "/SansiHome/IndexPhanTrang",
         type: "POST",
-        contentType: "application/json",
-        dataType: "json",
-        data: data,
-        success: function (response) {
-            debugger
-        },
-        error: function (response) {
-            debugger
+        data: {
+            n: 5,
+            p: 1
+
+            //UrlImage: "link 02"
         }
-    })
+    }).done(function (rs) {
+        debugger
+        /*alert(rs);*/
+    });
+  
 }
