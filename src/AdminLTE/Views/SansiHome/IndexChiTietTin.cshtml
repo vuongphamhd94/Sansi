@@ -68,7 +68,7 @@
                                     </a>
                                     <div class="sub-time">
                                         <i class="icon-dong-ho"></i>
-                                        <p class="time">@item.Time</p>
+                                        <p class="time">@item.Time.ToString("dd-MM-yyyy")</p>
                                     </div>
                                     <p>
                                         @item.Note
@@ -79,34 +79,6 @@
                         }
 
                     }
-
-
-                   
-                    @*@for (int i = 2; i <= 7; i++)
-                    {
-                        <div>
-                            <a href="@Url.Action("IndexChiTietTin", "SansiHome", new { id = i })">
-                                <img src="@Model.ListTinMoi.FirstOrDefault(x => x.ChiTietTinModelId == i).UrlImage" alt="images" />
-                            </a>
-
-                            <div>
-                                <a href="@Url.Action("IndexChiTietTin", "SansiHome", new { id = i }) ">
-                                    <h3>
-                                        @Model.ListTinMoi.FirstOrDefault(x => x.ChiTietTinModelId == i).Header
-                                    </h3>
-                                </a>
-                                <div class="sub-time">
-                                    <i class="icon-dong-ho"></i>
-                                    <p class="time">@Model.ListTinMoi.FirstOrDefault(x => x.ChiTietTinModelId == i).Time</p>
-                                </div>
-                                <p>
-                                    @Model.ListTinMoi.FirstOrDefault(x => x.ChiTietTinModelId == i).Note
-                                </p>
-                            </div>
-                        </div>
-
-                    }*@
-
 
                 </div>
             </div>
