@@ -60477,3 +60477,33 @@ nav .active {
 }
 
 
+
+.bt {
+    cursor:pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    color: #e5e5e5;
+    padding: 0.5rem;
+}
+.bt-color-xam {
+    background-color: gray;
+}
+.bt-color-xanh{
+    background-color: aqua;
+}
+.bt-color-do{
+    background-color: #fa282e;
+}
+.trang{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.current{
+    color: orange;
+    margin: 0 0.2rem;
+    border-bottom: 1px solid black;
+}

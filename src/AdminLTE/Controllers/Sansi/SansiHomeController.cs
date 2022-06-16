@@ -59,17 +59,23 @@ namespace AdminLTE.Controllers.Sansi
 
         //summary
         // danh sách các sản phẩm Sansi
+
+        public JsonResult SeachSanPham(SanPhamModel data)
+        {
+            return new JsonResult("update Thanh Cong ");
+        }
         public JsonResult AddDanhMucSanPham(SanPhamModel data)
         {
-            //_dbContext.SanPham.Add(data);
+            _dbContext.SanPham.Add(data);
             //_dbContext.SanPham.Remove(data);
-            var list = _dbContext.SanPham.ToList();
-            var sanPham = list.FirstOrDefault(x => x.Id == data.Id);
-            sanPham.GiaSanPham = data.GiaSanPham;
-            sanPham.Type = data.Type;
-            sanPham.TenSanPham = data.TenSanPham;
+            //var list = _dbContext.SanPham.ToList();
+            //var sanPham = list.FirstOrDefault(x => x.Id == data.Id);
+            //sanPham.GiaSanPham = data.GiaSanPham;
+            //sanPham.Type = data.Type;
+            //sanPham.TenSanPham = data.TenSanPham;
 
-            _dbContext.SanPham.Update(sanPham);
+            //_dbContext.SanPham.Update(sanPham);
+
             _dbContext.SaveChanges();
             return new JsonResult("update Thanh Cong ");
         }
@@ -179,17 +185,30 @@ namespace AdminLTE.Controllers.Sansi
         [HttpGet]
         public IActionResult IndexPhanTrang()
         {
+            PhanTrang data = new PhanTrang();
+            var allList = _dbContext.SanPham.ToList();
+            var totalCount = allList.Count();
             var listShow = new List<SanPhamModel>();
-            listShow = _dbContext.SanPham.Skip(0).Take(5).ToList();
-            return View(listShow);
+            listShow = _dbContext.SanPham.Skip(10).Take(5).ToList();
+            data.listSanPham = listShow;
+            data.n = 5;
+            data.p = 1;
+            data.totalCount = totalCount;
+            return View(data);
         }
+
 
         [HttpPost]
         public IActionResult IndexPhanTrang(PhanTrang data)
         {
             var listShow = new List<SanPhamModel>();
+            var allList = _dbContext.SanPham.ToList();
+            var pg = allList.Count();
             listShow = _dbContext.SanPham.Skip((data.p-1) * data.n).Take(data.n).ToList();
-            return View(listShow);
+            data.totalCount = pg;
+            data.listSanPham = listShow;
+            return PartialView("_PhanTrangView",data);
+            
         }
     }
 }

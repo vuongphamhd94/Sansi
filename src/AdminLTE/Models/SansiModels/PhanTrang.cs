@@ -9,5 +9,7 @@ namespace AdminLTE.Models.SansiModels
     {
         public int p { get; set; }
         public int n { get; set; }
+        public int totalCount { get; set; }
+        public List<SanPhamModel> listSanPham;
     }
 }

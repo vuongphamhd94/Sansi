@@ -1,0 +1,55 @@
+﻿@using AdminLTE.Models.SansiModels;
+@model PhanTrang
+<div class="trang">
+    @{
+        <button id="pr" class=" @(Model.p == 1? "hide":"bt bt-color-xam")">
+            <span class="material-icons">
+                arrow_back_ios
+            </span>
+            <span>Pr</span>
+        </button>
+
+        @*<span style="color: orangered">@Model.p</span>*@
+
+        if (Model.p == 1)
+        {
+            <span class="current">@Model.p</span>
+            <span>@(Model.p +1) </span>
+            <span>@(Model.p +2) </span>
+        }
+        
+        if (Model.p == Math.Ceiling((double)Model.totalCount / Model.n))
+        {
+            <span>@(Model.p -2) </span>
+            <span>@(Model.p -1) </span>
+            <span class="current">@Model.p</span>
+
+        }
+
+        if(Model.p > 1 && Model.p < Math.Ceiling((double)Model.totalCount / Model.n))
+        {
+
+            <span>@(Model.p -1) </span>
+            <span class="current">@Model.p</span>
+            <span>@(Model.p +1) </span>
+        }
+
+        <button id="nx" class=" @( Math.Ceiling((double)Model.totalCount/Model.n) == Model.p? "hide":"bt bt-color-xam")">
+            <span>NX</span>
+            <span class="material-icons">
+                navigate_next
+            </span>
+        </button>
+    }
+
+
+</div>
+
+<div>
+    @{
+        foreach (var item in Model.listSanPham)
+        {
+            <img src="@item.UrlImage" style="width: 250px">
+        }
+    }
+</div>

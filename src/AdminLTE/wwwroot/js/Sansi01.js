@@ -1,5 +1,7 @@
 ﻿////const { Button } = require("bootstrap");
 
+//const apply = require("core-js/library/fn/reflect/apply");
+
 
 let tieuDe = document.querySelectorAll(".tim-kiem-sp-nav-top > div");
 for (let i = 0; i < tieuDe.length; i++) {
@@ -30,31 +32,37 @@ for (let i = 0; i < tieuDe.length; i++) {
 }
 
 
-let bt = document.querySelector("#bt-sm");
+
+
+let bt = document.querySelector("#btmSubmit");
 let sanPham = [];
 if (bt) {
     bt.addEventListener("click", function () {
 
-        let newSanPham = {
-            name: document.querySelector("#name").value,
-            title: document.querySelector("#image").value,
-            price: document.querySelector("#price")
-        }
-        sanPham.push(newSanPham);
-        console.log(newSanPham);
+        //let newSanPham = {
+        //    name: document.querySelector("#name").value,
+        //    title: document.querySelector("#image").value,
+        //    price: document.querySelector("#price")
+        //}
+        //sanPham.push(newSanPham);
+        //console.log(newSanPham);
 
+        var data = {
+            TenSanPham: $("#name").val(),
+            Type: $("#title").val(),
+            GiaSanPham: $("#price").val(),
+            UrlImage: $("#image").val()
+        }
+
+        $("#name").val("") ;
+        $("#title").val("");
+        $("#price").val("");
+        $("#image").val("");
 
         $.ajax({
             url: "/SansiHome/AddDanhMucSanPham",
-            /* method: "POST",*/
-            data: {
-                id : 100,
-                p: 19,
-                TenSanPham: "San Pham 01",
-                Type: 1,
-                GiaSanPham: 12.5,
-                //UrlImage: "link 02"
-            }
+             method: "POST",
+            data: data,
         }).done(function (rs) {
             alert(rs);
         });
@@ -63,37 +71,44 @@ if (bt) {
 
 
 
-let pr = document.querySelector("#pr");
-let nx = document.querySelector("#nx");
-let pg = document.querySelector(".trang>span");
+const evtPr = () => {
+    let pr = document.querySelector("#pr");
+    pr.addEventListener("click", function () {
+        let pg = document.querySelector(".trang>.current");
+        let p = Number(pg.textContent);
+        p--;
+        show(5, p);
+    })
+}
 
-console.log(pg.textContent);
+const evtNx = () => {
+    let nx = document.querySelector("#nx");
+    nx.addEventListener("click", function () {
+        let pg = document.querySelector(".trang>.current");
+        let p = Number(pg.textContent);
+        p++;
+        show(5, p);
+    })
+}
 
-show(5)
+evtNx();
 
 
-function show(n) {
-    let t = {
-        data: {
-            n: 5,
-            p: 1
-        }
-    };
-
-    let data = JSON.stringify(t);
+function show(n, p) {
     //debugger
     $.ajax({
         url: "/SansiHome/IndexPhanTrang",
         type: "POST",
         data: {
-            n: 5,
-            p: 1
-
-            //UrlImage: "link 02"
+            n: n,
+            p: p
         }
     }).done(function (rs) {
-        debugger
+        //debugger
+        document.querySelector("#PhanTrang").innerHTML = rs;
+        evtPr();
+        evtNx();
         /*alert(rs);*/
     });
-  
+
 }
