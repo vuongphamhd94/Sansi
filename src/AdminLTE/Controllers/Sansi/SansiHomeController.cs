@@ -202,13 +202,30 @@ namespace AdminLTE.Controllers.Sansi
         public IActionResult IndexPhanTrang(PhanTrang data)
         {
             var listShow = new List<SanPhamModel>();
-            var allList = _dbContext.SanPham.ToList();
+            var allList = _dbContext.SanPham.Where(x => string.IsNullOrEmpty(data.searchName) || x.TenSanPham.Contains(data.searchName)).ToList();
             var pg = allList.Count();
-            listShow = _dbContext.SanPham.Skip((data.p-1) * data.n).Take(data.n).ToList();
+            listShow = allList.Skip((data.p-1) * data.n).Take(data.n).ToList();
             data.totalCount = pg;
             data.listSanPham = listShow;
             return PartialView("_PhanTrangView",data);
             
         }
+
+        private object IQueryable<T>()
+        {
+            throw new System.NotImplementedException();
+        }
+        //[HttpPost]
+        //public IActionResult PhanTrangTimKiemSanPham(PhanTrang data)
+        //{
+        //    var listShow = new List<SanPhamModel>();
+        //    var allList = _dbContext.SanPham.ToList();
+        //    var pg = allList.Count();
+        //    listShow = _dbContext.SanPham.Skip((data.p - 1) * data.n).Take(data.n).ToList();
+        //    data.totalCount = pg;
+        //    data.listSanPham = listShow;
+        //    return PartialView("_TimKiemSanPham", data);
+
+        //}
     }
 }

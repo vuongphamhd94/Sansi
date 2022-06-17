@@ -14,19 +14,32 @@
         if (Model.p == 1)
         {
             <span class="current">@Model.p</span>
-            <span>@(Model.p +1) </span>
-            <span>@(Model.p +2) </span>
+            if (Model.totalCount / Model.n > 1)
+            {
+                <span>@(Model.p +1) </span>
+            }
+
+            if (Math.Ceiling((double)Model.totalCount / Model.n) > 2)
+            {
+                <span>@(Model.p +2) </span>
+            }
         }
-        
+
         if (Model.p == Math.Ceiling((double)Model.totalCount / Model.n))
         {
-            <span>@(Model.p -2) </span>
-            <span>@(Model.p -1) </span>
+            if (Model.p > 2)
+            {
+                <span>@(Model.p -2) </span>
+            }
+            if (Model.p > 1)
+            {
+                <span>@(Model.p -1) </span>
+            }
             <span class="current">@Model.p</span>
 
         }
 
-        if(Model.p > 1 && Model.p < Math.Ceiling((double)Model.totalCount / Model.n))
+        if (Model.p > 1 && Model.p < Math.Ceiling((double)Model.totalCount / Model.n))
         {
 
             <span>@(Model.p -1) </span>
@@ -50,6 +63,7 @@
         foreach (var item in Model.listSanPham)
         {
             <img src="@item.UrlImage" style="width: 250px">
+            <h3>@item.TenSanPham</h3>  
         }
     }
 </div>

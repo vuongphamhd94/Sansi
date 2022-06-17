@@ -33,19 +33,13 @@ for (let i = 0; i < tieuDe.length; i++) {
 
 
 
-
+// them san pham
 let bt = document.querySelector("#btmSubmit");
 let sanPham = [];
 if (bt) {
     bt.addEventListener("click", function () {
 
-        //let newSanPham = {
-        //    name: document.querySelector("#name").value,
-        //    title: document.querySelector("#image").value,
-        //    price: document.querySelector("#price")
-        //}
-        //sanPham.push(newSanPham);
-        //console.log(newSanPham);
+       
 
         var data = {
             TenSanPham: $("#name").val(),
@@ -70,14 +64,17 @@ if (bt) {
 }
 
 
-
+// phan trang, tim kiếm
 const evtPr = () => {
     let pr = document.querySelector("#pr");
     pr.addEventListener("click", function () {
         let pg = document.querySelector(".trang>.current");
         let p = Number(pg.textContent);
+        let searchName = $("#name").val();
         p--;
-        show(5, p);
+        show(5, p, searchName);
+
+        console.log(searchName);
     })
 }
 
@@ -86,22 +83,47 @@ const evtNx = () => {
     nx.addEventListener("click", function () {
         let pg = document.querySelector(".trang>.current");
         let p = Number(pg.textContent);
+        let searchName = $("#name").val();
         p++;
-        show(5, p);
+        show(5, p,searchName);
+
+        console.log(searchName);
     })
 }
 
 evtNx();
 
 
-function show(n, p) {
+//search
+const evtSeach = () => {
+    let search = $("#btmSearch");
+    search.on("click", function () {
+        let p = 1;
+        let searchName = $("#name").val();
+        show(5, p, searchName);
+
+        console.log(searchName);
+    })
+}
+let search = $("#btmSearch");
+search.on("click", function () {
+    let p = 1;
+    let searchName = $("#name").val();
+    show(5, p, searchName);
+
+    console.log(searchName);
+})
+
+
+function show(n, p,searchName) {
     //debugger
     $.ajax({
         url: "/SansiHome/IndexPhanTrang",
         type: "POST",
         data: {
             n: n,
-            p: p
+            p: p,
+            searchName: searchName,
         }
     }).done(function (rs) {
         //debugger

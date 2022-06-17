@@ -3,7 +3,7 @@
 
 @{
     Layout = "_LayoutSansi";
-    ViewBag.Title = "Tạp phân trang";
+    ViewBag.Title = "Tạo phân trang";
     ViewBag.Type = 1;
     ViewBag.Active = "TrangChu";
 }
@@ -11,7 +11,8 @@
 <div id="PhanTrang">
     @Html.Partial("~/Views/SansiHome/_PhanTrangView.cshtml", Model)
 </div>
-<div>
+
+<div class="btm-form-themSanPham">
     <button class="bt bt-color-xanh">
         <span class="material-icons">
             add_box
@@ -22,18 +23,51 @@
     <div class="nen"></div>
     <div>
         <label for="name">Tên sản phẩm</label>
-        <input type="text" id="name" />
+        <input type="text" id="name" placeholder="Nhập tên sản phẩm" />
 
         <label for="title">Loại sản phẩm</label>
-        <input type="text" id="title" />
+        <input type="text" id="title" placeholder="Nhập loại sản phẩm" />
 
         <label for="price">Giá sản phẩm</label>
-        <input type="text" id="price" />
+        <input type="text" id="price" placeholder="Nhập giá sản phẩm" />
 
         <label for="image">Link ảnh sản phẩm</label>
-        <input type="text" id="image" />
+        <input type="text" id="image" placeholder="Nhập Link sản phẩm" />
 
-        <button class="bt bt-color-do" id="btmSubmit">Submit</button>
+        <button class="bt bt-color-do" id="btmSubmit">
+            <span class="material-icons">
+                outbox
+            </span>
+            <span>
+                Submit
+            </span>
+        </button>
     </div>
 
+</div>
+
+<div class="form-tim-kiem-sp">
+    <div class="nen"></div>
+
+    <div>
+        @*<label for="name">Tên sản phẩm</label>
+        <input type="text" id="name" placeholder="Tên sản phẩm tìm kiếm" />
+
+        <label for="title">Loại sản phẩm</label>
+        <input type="text" id="title" placeholder="Loại sản phẩm tìm kiếm" />
+
+        <label for="price">Giá sản phẩm</label>
+        <input type="text" id="price" placeholder="Giá sản phẩm muốn tìm kiếm" />*@
+
+        <button class="bt bt-color-do" id="btmSearch">
+            <span class="material-icons">
+                content_paste_search
+            </span>
+            <span>
+                Seach
+            </span>
+        </button>
+    </div>
+
+</div>
 </div>
